@@ -11,7 +11,7 @@ body{
 	width:fit-content;
 	margin-left: auto;
 	margin-right: auto;
-
+	 
 }
 .title{
 	text-align: center;
@@ -23,7 +23,7 @@ body{
 
 .players{
 	text-align: center;
-	margin: 9px 0px;
+	margin: 9px 0px 0px 0px;
 	
 }
 
@@ -48,6 +48,23 @@ table{
 	
 
 }
+#winMessage{
+	color: white;
+	position:relative;
+	top: 200px;
+	font-size: 30px;
+	background-color: blue;
+	color: black;
+	border: 2px solid green;
+	border-radius: 5px;
+	z-index: 1;
+	margin-right: auto;
+	margin-left: auto;
+	width: fit-content;
+	margin: 0px;
+	visibility: hidden;
+
+}
 #tr1{
 	background-color: yellow;
 	font-size: 25px;
@@ -63,13 +80,14 @@ table{
 	width: 100px;
 	height: 100px;
 	background-color: white;
-	border: 5px solid hotpink;
+	border: 5px solid deeppink;
 	border-radius: 10px;
 	padding: 10px;
 	font-size: 80px;
 	text-align: center;
 	user-select: none;
-	opacity: 0.8;
+	cursor: pointer;
+	opacity: 0.9;
 
 }
 button{
@@ -81,6 +99,6 @@ button{
 	color: black;
 	margin-top: 15px;
 }
-td{
-	
+#try{
+	color: white;
 }

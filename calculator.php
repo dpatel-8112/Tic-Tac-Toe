@@ -31,6 +31,8 @@
 						</select>
 					</div>
 				</div>
+					<div id="winMessage"></div>
+
 				<table>
 					<thead>
 						<tr >
@@ -39,19 +41,19 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="box" onclick="myFunction(this)"></td>
-							<td class="box" onclick="myFunction(this)"></td>
-							<td class="box" onclick="myFunction(this)"></td>
+							<td class="box" id="1" onclick="myFunction(this)"></td>
+							<td class="box" id="2" onclick="myFunction(this)"></td>
+							<td class="box" id="3" onclick="myFunction(this)"></td>
 						</tr>
 						<tr>
-							<td class="box" onclick="myFunction(this)"></td>
-							<td class="box" onclick="myFunction(this)"></td>
-							<td class="box" onclick="myFunction(this)"></td>
+							<td class="box" id="4" onclick="myFunction(this)"></td>
+							<td class="box" id="5" onclick="myFunction(this)"></td>
+							<td class="box" id="6" onclick="myFunction(this)"></td>
 						</tr>
 						<tr>
-							<td class="box" onclick="myFunction(this)"></td>
-							<td class="box" onclick="myFunction(this)"></td>
-							<td class="box" onclick="myFunction(this)"></td>
+							<td class="box" id="7" onclick="myFunction(this)"></td>
+							<td class="box" id="8" onclick="myFunction(this)"></td>
+							<td class="box" id="9" onclick="myFunction(this)"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -69,6 +71,7 @@
 		var player1 = "";
 		var player2 = "";
 		var flag = "";
+		gameWon();
 
 		function myPlayer1(p1){
 			player1 = "";
@@ -118,19 +121,52 @@
   								flag++;
   								x.onclick = null;
   								document.getElementById('tr1').innerHTML = 'Turn  ==>  Player 2 ';
+  								gameWon(player1);
   							}
   							else{
   								x.innerHTML = player2;
   								flag++;
   								x.onclick = null;
   								document.getElementById('tr1').innerHTML = 'Turn  ==>  Player 1 ';
+  								gameWon(player2);
   							}
 
   						}
 			}
 		}
 
+		
 
+		function gameWon(winPlayer){
+			var pp1 = player1;
+			var pp2 = player2;
+			var cell = document.querySelectorAll('.box');
+			var message = document.getElementById('winMessage');
+
+
+						if(cell[0].innerHTML == winPlayer && cell[1].innerHTML == winPlayer && cell[2].innerHTML == winPlayer){
+
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[3].innerHTML == winPlayer && cell[4].innerHTML == winPlayer && cell[5].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[6].innerHTML == winPlayer && cell[7].innerHTML == winPlayer && cell[8].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[0].innerHTML == winPlayer && cell[3].innerHTML == winPlayer && cell[6].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[1].innerHTML == winPlayer && cell[4].innerHTML == winPlayer && cell[7].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[2].innerHTML == winPlayer && cell[5].innerHTML == winPlayer && cell[8].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[0].innerHTML == winPlayer && cell[4].innerHTML == winPlayer && cell[8].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else if(cell[2].innerHTML == winPlayer && cell[4].innerHTML == winPlayer && cell[6].innerHTML == winPlayer){
+							message.innerHTML = "Congratulation !!! " + winPlayer  + " won";
+						}else{
+							if(flag == 9){
+							message.innerHTML = "Match is Draw";
+							}
+						}
+		}
 
 	</script>
 </body>
